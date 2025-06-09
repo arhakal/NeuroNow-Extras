@@ -1,0 +1,1992 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2025-06-04 04:57:48">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>NeuroNow Global Scope Install</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>912e8e034779a210ed3c9e20116d4306</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f87b9a2f47b16610ed3c9e20116d43fa</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>u_neuronow_openai_skills_d986971347f12610ed3c9e20116d43d0</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="u_neuronow_openai_skills"&gt;&lt;u_neuronow_openai_skills action="INSERT_OR_UPDATE"&gt;&lt;sys_class_name&gt;u_neuronow_openai_skills&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 14:39:53&lt;/sys_created_on&gt;&lt;sys_id&gt;d986971347f12610ed3c9e20116d43d0&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 17:52:04&lt;/sys_updated_on&gt;&lt;u_active&gt;true&lt;/u_active&gt;&lt;u_category/&gt;&lt;u_description&gt;/**&amp;#13;
+Deletes a record from any table using specified field filters.&amp;#13;
+Validates table and fields against sys_dictionary, resolves reference fields before query.&amp;#13;
+@param {object} input - { table: string, filters: { field1: value1, ... } }&amp;#13;
+@returns {string} JSON with deleted sys_id or error&amp;#13;
+*/&lt;/u_description&gt;&lt;u_last_tested/&gt;&lt;u_module/&gt;&lt;u_name&gt;delete_record&lt;/u_name&gt;&lt;u_number&gt;NSKILL0001017&lt;/u_number&gt;&lt;u_parameters_json/&gt;&lt;u_script&gt;&lt;![CDATA[/**
+Deletes a single record from a specified table using sys_id only.
+Validates table and sys_id before performing delete.
+@param {object} input - { table: string, sys_id: string }
+@returns {string} JSON with deletion status or error.
+*/
+
+(function () {
+    var result = {};
+
+    if (!input || !input.table || !input.sys_id) {
+        result.error = "Missing required parameters: table and sys_id.";
+        return JSON.stringify(result);
+    }
+
+    var table = input.table;
+    var sysId = input.sys_id;
+
+    if (!GlideTableDescriptor.isValid(table)) {
+        result.error = "Invalid table: " + table;
+        return JSON.stringify(result);
+    }
+
+    var gr = new GlideRecord(table);
+    if (!gr.get(sysId)) {
+        result.error = "Record with sys_id '" + sysId + "' not found in table '" + table + "'";
+        return JSON.stringify(result);
+    }
+
+    gr.deleteRecord();
+
+    result.status = "deleted";
+    result.table = table;
+    result.sys_id = sysId;
+
+    return JSON.stringify(result);
+})();
+]]&gt;&lt;/u_script&gt;&lt;u_short_description&gt;Deletes a record from any ServiceNow table using sys_id or a set of field values. &lt;/u_short_description&gt;&lt;u_version/&gt;&lt;/u_neuronow_openai_skills&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;d986971347f12610ed3c9e20116d43d0&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 14:39:53&lt;/sys_created_on&gt;&lt;sys_id&gt;ca17971347f12610ed3c9e20116d43b7&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 14:39:53&lt;/sys_updated_on&gt;&lt;table&gt;u_neuronow_openai_skills&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-713627026</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>307b1eaf47b16610ed3c9e20116d43d4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393887960000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>delete_record</target_name>
+<type>OpenAI Skills</type>
+<update_domain>global</update_domain>
+<update_guid>313656e7dfb166103cfc857edeaaf66c</update_guid>
+<update_guid_history>313656e7dfb166103cfc857edeaaf66c:-713627026</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_module</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_module" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice&gt;1&lt;/choice&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Module&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_module&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="Choice"&gt;choice&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 00:53:29&lt;/sys_created_on&gt;&lt;sys_id&gt;98e918134735e210ed3c9e20116d43c0&lt;/sys_id&gt;&lt;sys_name&gt;Module&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_module&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 00:53:29&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-422296314</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>307b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eac470000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Module</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>14c71a6b8db1661092e4b3647e7e58ef</update_guid>
+<update_guid_history>14c71a6b8db1661092e4b3647e7e58ef:-422296314,60f91c133135e2106dd95e3483301703:-422296314</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_short_description_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_short_description" label="Short Description" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_short_description</element><help/><hint/><label>Short Description</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Short Descriptions</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:24:16</sys_created_on><sys_id>dea79ecf4779a210ed3c9e20116d4385</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Short Description</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_short_description_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:24:16</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-535926685</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>307b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eafa10000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Short Description</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6bc7b16610026b08d153c32e23</update_guid>
+<update_guid_history>98c75a6bc7b16610026b08d153c32e23:-535926685,dea79ecf4279a2106c526bdd1399cb8d:-535926685</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>u_neuronow_openai_skills_a3791a8347b9a210ed3c9e20116d4350</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="u_neuronow_openai_skills"&gt;&lt;u_neuronow_openai_skills action="INSERT_OR_UPDATE"&gt;&lt;sys_class_name&gt;u_neuronow_openai_skills&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:33:28&lt;/sys_created_on&gt;&lt;sys_id&gt;a3791a8347b9a210ed3c9e20116d4350&lt;/sys_id&gt;&lt;sys_mod_count&gt;17&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 21:39:06&lt;/sys_updated_on&gt;&lt;u_active&gt;true&lt;/u_active&gt;&lt;u_category/&gt;&lt;u_description&gt;/**&amp;#13;
+Creates or updates a sys_user record with dynamic schema support and reference resolution.&amp;#13;
+Inspects sys_user fields using local schema lookup. Resolves references via gptFunctions.resolveReferenceField().&amp;#13;
+Accepts both a `fields` object and top-level keys for updates.&amp;#13;
+@param {object} input - { sys_id?, user_name?, email?, full_name?, fields?, ... }&amp;#13;
+@returns {string} JSON string with sys_id or error.&amp;#13;
+*/&lt;/u_description&gt;&lt;u_last_tested/&gt;&lt;u_module/&gt;&lt;u_name&gt;get_user&lt;/u_name&gt;&lt;u_number&gt;NSKILL0001004&lt;/u_number&gt;&lt;u_parameters_json/&gt;&lt;u_script&gt;&lt;![CDATA[(function () {
+    var result = {
+        matches: []
+    };
+    var gptFns = new global.gptFunctions();
+
+    // Normalize and promote input into filters
+    var filters = input.filters || {};
+    for (var key in input) {
+        if (key !== 'filters' &amp;&amp; !filters.hasOwnProperty(key)) {
+            filters[key] = input[key];
+        }
+    }
+
+    // Alias full_name to name
+    if (filters.full_name &amp;&amp; !filters.name) {
+        filters.name = filters.full_name;
+    }
+
+    var table = 'sys_user';
+    var schema = gptFns.getTableSchema(table);
+    var validFields = schema.fields.map(function(f) { return f.name; });
+
+    var gr = new GlideRecord(table);
+    var hasFilters = false;
+
+    // Validate and add queries for only valid schema fields
+    for (var f in filters) {
+        if (!filters.hasOwnProperty(f) || !filters[f]) continue;
+
+        if (validFields.indexOf(f) === -1) {
+            result.error = "Invalid field in filters: '" + f + "'";
+            return JSON.stringify(result);
+        }
+
+        gr.addQuery(f, filters[f]);
+        hasFilters = true;
+    }
+
+    if (!hasFilters) {
+        result.error = "No valid filters provided.";
+        return JSON.stringify(result);
+    }
+
+    gr.query();
+
+    while (gr.next()) {
+        result.matches.push({
+            sys_id: gr.getUniqueValue(),
+            name: gr.getDisplayValue('name'),
+            user_name: gr.getValue('user_name'),
+            email: gr.getValue('email'),
+            first_name: gr.getValue('first_name'),
+            last_name: gr.getValue('last_name')
+        });
+    }
+
+    if (result.matches.length === 0) {
+        result.error = "No users found matching the provided filters.";
+    }
+
+    return JSON.stringify(result);
+})();
+
+]]&gt;&lt;/u_script&gt;&lt;u_short_description/&gt;&lt;u_version/&gt;&lt;/u_neuronow_openai_skills&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;a3791a8347b9a210ed3c9e20116d4350&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:33:28&lt;/sys_created_on&gt;&lt;sys_id&gt;09c9d68347b9a210ed3c9e20116d43f9&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:33:28&lt;/sys_updated_on&gt;&lt;table&gt;u_neuronow_openai_skills&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-452556576</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>347b1eaf47b16610ed3c9e20116d43d3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393887c30000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>get_user</target_name>
+<type>OpenAI Skills</type>
+<update_domain>global</update_domain>
+<update_guid>c23656e79ab1661081f3c2b49f7ac96e</update_guid>
+<update_guid_history>c23656e79ab1661081f3c2b49f7ac96e:-452556576,d9885c9f45f1e210a209c25575bb8307:-1395670808</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_active</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_active" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Active&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_active&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value=""&gt;boolean&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:13:41&lt;/sys_created_on&gt;&lt;sys_id&gt;4035d20f4779a210ed3c9e20116d43a4&lt;/sys_id&gt;&lt;sys_name&gt;Active&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_active&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:13:41&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>202439616</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>347b9a2f47b16610ed3c9e20116d43fb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaad00000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Active</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>80c71a6b2ab1661087bf4ca65ed970db</update_guid>
+<update_guid_history>80c71a6b2ab1661087bf4ca65ed970db:202439616,eb35160fcc79a210ddb5e4d50fed7bf2:202439616</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_name_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_name" label="Name" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_name</element><help/><hint/><label>Name</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Names</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:12:29</sys_created_on><sys_id>b1f4d6cb4779a210ed3c9e20116d43ff</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Name</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_name_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:12:29</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-999630345</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>347b9a2f47b16610ed3c9e20116d43fe</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf710000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Name</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6b95b16610ad34493e72ef9020</update_guid>
+<update_guid_history>98c75a6b95b16610ad34493e72ef9020:-999630345,35f41ecb4179a210ef70ba99c69b0298:-999630345</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_8cb456cb4779a210ed3c9e20116d4311</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><controlled_by_refs/><decision_type>allow</decision_type><description>Default access control on u_neuronow_openai_skills</description><local_or_existing>Local</local_or_existing><name>u_neuronow_openai_skills</name><operation display_value="delete">delete</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>8cb456cb4779a210ed3c9e20116d4311</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_8cb456cb4779a210ed3c9e20116d4311</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash>1717224068</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>347bda2f47b16610ed3c9e20116d4301</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb05f0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>28c75a6b09b166103f3e50ed80fa9537</update_guid>
+<update_guid_history>28c75a6b09b166103f3e50ed80fa9537:1717224068,ccb456cbef79a2105f2161d754659313:1717224068</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_c0b456cb4779a210ed3c9e20116d4315</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>c0b456cb4779a210ed3c9e20116d4315</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_neuronow_openai_skills">8cb456cb4779a210ed3c9e20116d4311</sys_security_acl><sys_update_name>sys_security_acl_role_c0b456cb4779a210ed3c9e20116d4315</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><sys_user_role display_value="u_neuronow_openai_skills_user" name="u_neuronow_openai_skills_user">33a45e8b4779a210ed3c9e20116d4367</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+<payload_hash>726544357</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>387b1eaf47b16610ed3c9e20116d43d2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb16a0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid>a8c75a6b4ab166108a0fa2dfebb2fb45</update_guid>
+<update_guid_history>a8c75a6b4ab166108a0fa2dfebb2fb45:726544357,c4b456cb4979a210b2e37d2dcb996617:726544357</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_category_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_category" label="Category" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_category</element><help/><hint/><label>Category</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Categories</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:15:36</sys_created_on><sys_id>1ba5524f4779a210ed3c9e20116d43e2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Category</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_category_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:15:36</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>238490492</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>387b9a2f47b16610ed3c9e20116d43fd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaeb30000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Category</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6b6fb166105c069e0536258314</update_guid>
+<update_guid_history>98c75a6b6fb166105c069e0536258314:238490492,2ba5524f1679a2106a028dff1fc2c6ea:238490492</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">Global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_c4fabd158302121084701630ceaad3d7</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.ScopedAppUtil&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;aaa&lt;/description&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;ScopedAppUtil&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var ScopedAppUtil = Class.create();
+ScopedAppUtil.prototype = {
+	
+    initialize: function(key) {
+
+    },
+
+	gptApiKeyDecrypt: function(str){
+		var decryptedPassword = GlideProperties.get("x_neuronow.gpt.openai.api.key");
+		return decryptedPassword;
+	},
+
+    type: 'ScopedAppUtil'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-11-22 16:55:03&lt;/sys_created_on&gt;&lt;sys_id&gt;c4fabd158302121084701630ceaad3d7&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;ScopedAppUtil&lt;/sys_name&gt;&lt;sys_package display_value=""&gt;68aa31158302121084701630ceaad3d2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value=""&gt;68aa31158302121084701630ceaad3d2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_c4fabd158302121084701630ceaad3d7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-04 04:40:28&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>2096687157</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>387bda2f47b16610ed3c9e20116d4300</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393d9c8f0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>ScopedAppUtil</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>1777926b38b16610836ebd30ead6dc9d</update_guid>
+<update_guid_history>1777926b38b16610836ebd30ead6dc9d:2096687157,9437dae725b16610c37ccc13789bb885:-1293191764,72549bb2c4b9621018f4c2527a5b386c:-341312109</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_script</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_script" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Script&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_script&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="Script"&gt;script&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;100000000&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:13:22&lt;/sys_created_on&gt;&lt;sys_id&gt;3ef49ecb4779a210ed3c9e20116d433e&lt;/sys_id&gt;&lt;sys_name&gt;Script&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_script&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 06:48:18&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-398954861</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>3c7b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaa870000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Script</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>c0c71a6b13b166106eb4cf15ff9dcbd7</update_guid>
+<update_guid_history>c0c71a6b13b166106eb4cf15ff9dcbd7:-398954861,8a2b259b6cb9e2100d5a15309de05666:-398954861,4a795283aab9a210e16b5abab728b832:778198483,7e25920f0d79a210f1ea61ccee4fda19:-179888920</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_schema_attribute_455b70b3eb321100d4360c505206fee8</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_schema_attribute"><sys_schema_attribute action="INSERT_OR_UPDATE"><applies_to>BOTH</applies_to><applies_to_description/><column_on_table/><column_type/><description/><label>Ignore filter on new</label><name>ignore_filter_on_new</name><on_table/><read_roles>maint</read_roles><remove_roles>maint</remove_roles><sys_class_name>sys_schema_attribute</sys_class_name><sys_created_by>maint</sys_created_by><sys_created_on>2014-02-16 17:44:52</sys_created_on><sys_id>455b70b3eb321100d4360c505206fee8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Ignore filter on new</sys_name><sys_package display_value="Schema Attributes" source="com.glide.schema.attributes">dab1d0ab9820221055904c91e2b65470</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_schema_attribute_455b70b3eb321100d4360c505206fee8</sys_update_name><sys_updated_by>maint</sys_updated_by><sys_updated_on>2014-02-16 17:44:52</sys_updated_on><update_roles>maint</update_roles><value_description/><value_type display_value="String">747127c1bf3320001875647fcf0739e0</value_type></sys_schema_attribute></record_update>]]></payload>
+<payload_hash>-94408770</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>3c7b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eab310000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>Ignore filter on new</target_name>
+<type>Dictionary Attribute</type>
+<update_domain>global</update_domain>
+<update_guid>44c71a6bd8b16610a1fb84968647b6e1</update_guid>
+<update_guid_history>44c71a6bd8b16610a1fb84968647b6e1:-94408770</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_user_role_33a45e8b4779a210ed3c9e20116d4367</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>u_neuronow_openai_skills_user</name><scoped_admin>false</scoped_admin><suffix/><sys_class_name>sys_user_role</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:15</sys_created_on><sys_id>33a45e8b4779a210ed3c9e20116d4367</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_user_role_33a45e8b4779a210ed3c9e20116d4367</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:15</sys_updated_on></sys_user_role></record_update>]]></payload>
+<payload_hash>712534111</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>707b1eaf47b16610ed3c9e20116d43d3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb1450000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>u_neuronow_openai_skills_user</target_name>
+<type>Role</type>
+<update_domain>global</update_domain>
+<update_guid>ecc75a6b8ab16610338a15c89c186343</update_guid>
+<update_guid_history>ecc75a6b8ab16610338a15c89c186343:712534111,7fa45e8b4679a21026385c2f968f636c:712534111</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_null</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element/&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="Collection"&gt;collection&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:11:16&lt;/sys_created_on&gt;&lt;sys_id&gt;88b456cb4779a210ed3c9e20116d4318&lt;/sys_id&gt;&lt;sys_name&gt;u_neuronow_openai_skills&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_null&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:11:16&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-18637730</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>707b9a2f47b16610ed3c9e20116d43fb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eac020000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>98c71a6b43b1661009facba9871ae7eb</update_guid>
+<update_guid_history>98c71a6b43b1661009facba9871ae7eb:-18637730,8cb456cbab79a21037358bd74e23d24e:-18637730</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_module_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_module" label="Module" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_module</element><help/><hint/><label>Module</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Modules</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:53:29</sys_created_on><sys_id>28f9d8134735e210ed3c9e20116d43fa</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Module</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_module_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:53:29</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>2027870901</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>707b9a2f47b16610ed3c9e20116d43fe</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaecb0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Module</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6bcbb16610bbd86dffdf94b016</update_guid>
+<update_guid_history>90c75a6bcbb16610bbd86dffdf94b016:2027870901,60f91c135635e2108c8dec88c04ac205:2027870901</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_40b456cb4779a210ed3c9e20116d430b</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><controlled_by_refs/><decision_type>allow</decision_type><description>Default access control on u_neuronow_openai_skills</description><local_or_existing>Local</local_or_existing><name>u_neuronow_openai_skills</name><operation display_value="write">write</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>40b456cb4779a210ed3c9e20116d430b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_40b456cb4779a210ed3c9e20116d430b</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash>1809701846</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>707bda2f47b16610ed3c9e20116d4301</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb0430000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>2cc75a6bf6b16610463bc6b78e4b3e35</update_guid>
+<update_guid_history>2cc75a6bf6b16610463bc6b78e4b3e35:1809701846,80b456cba479a21079528fc800c0ea0d:1809701846</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_b3a416cb4779a210ed3c9e20116d43ff</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>b3a416cb4779a210ed3c9e20116d43ff</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_neuronow_openai_skills">3fa416cb4779a210ed3c9e20116d43f9</sys_security_acl><sys_update_name>sys_security_acl_role_b3a416cb4779a210ed3c9e20116d43ff</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><sys_user_role display_value="u_neuronow_openai_skills_user" name="u_neuronow_openai_skills_user">33a45e8b4779a210ed3c9e20116d4367</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+<payload_hash>260755749</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>747b1eaf47b16610ed3c9e20116d43d2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb1260000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid>e0c75a6b95b166105c28d8769d623542</update_guid>
+<update_guid_history>e0c75a6b95b166105c28d8769d623542:260755749,bfa456cbf079a21000f77e805f9dae02:260755749</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_active_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_active" label="Active" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_active</element><help/><hint/><label>Active</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Active</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:13:41</sys_created_on><sys_id>a735dacb4779a210ed3c9e20116d430f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Active</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_active_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:13:41</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-96402914</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>747b9a2f47b16610ed3c9e20116d43fd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf590000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Active</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6b2db16610a03bab716a999c1f</update_guid>
+<update_guid_history>90c75a6b2db16610a03bab716a999c1f:-96402914,2b35160f0879a2105c64980b46249cf4:-96402914</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_792d0df647b16210e52631b4116d433e</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.gptFunctions&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;gptFunctions&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var gptFunctions = Class.create();
+gptFunctions.prototype = {
+    initialize: function() {},
+
+    /**
+    Resolves a display value to a sys_id for a reference field.
+    Supports fallback options if children exist under a matched parent.
+    @param {string} table - The parent table (e.g. 'sys_user').
+    @param {string} fieldOrLabel - The reference field name or column label (e.g. 'department' or 'Test Field').
+    @param {string} value - The display value to resolve (e.g. 'Tokyo').
+    @param {Array} schemaFields - Optional schema array from getTableSchema().
+    @returns {object} { success: boolean, sys_id: string, message: string, choices?: string[] }
+    */
+    resolveReferenceValue: function(table, fieldOrLabel, value, schemaFields) {
+        var result = {
+            success: false,
+            sys_id: '',
+            message: ''
+        };
+
+        var fieldName = fieldOrLabel;
+
+        // Resolve field name from schema if available
+        if (Array.isArray(schemaFields)) {
+            var match = schemaFields.find(function(f) {
+                return f.name === fieldOrLabel || f.column_label === fieldOrLabel;
+            });
+
+            if (!match) {
+                match = schemaFields.find(function(f) {
+                    return f.name === 'u_' + fieldOrLabel;
+                });
+            }
+
+            if (match) fieldName = match.name;
+        }
+
+        // Get reference table
+        var dictGR = new GlideRecord('sys_dictionary');
+        dictGR.addQuery('name', table);
+        dictGR.addQuery('element', fieldName);
+        dictGR.query();
+        if (!dictGR.next()) {
+            result.message = "Field '" + fieldOrLabel + "' not found in dictionary for table '" + table + "'";
+            return result;
+        }
+
+        var refTable = dictGR.getValue('reference');
+        if (!refTable) {
+            result.message = "Field '" + fieldOrLabel + "' is not a reference field.";
+            return result;
+        }
+
+        // Get display field from sys_db_object
+        var displayField = 'name'; // fallback
+        var dbObj = new GlideRecord('sys_db_object');
+        if (dbObj.get('name', refTable)) {
+            displayField = dbObj.getValue('display_column') || 'name';
+        }
+
+        // Try exact match
+        var refGR = new GlideRecord(refTable);
+        refGR.addQuery(displayField, value);
+        refGR.setLimit(1);
+        refGR.query();
+        if (!refGR.next()) {
+            //Fallback: fuzzy match
+            refGR = new GlideRecord(refTable);
+            refGR.addQuery(displayField, 'CONTAINS', value);
+            refGR.setLimit(1);
+            refGR.query();
+            if (!refGR.next()) {
+                result.message = "No match found in '" + refTable + "' for value: '" + value + "'";
+                return result;
+            }
+        }
+
+        // At this point we have a match
+        var refSysId = refGR.getUniqueValue();
+        result.success = true;
+        result.sys_id = refSysId;
+
+        // Detect self-referencing (hierarchical) field
+        var childRefField = null;
+        var refDictGR = new GlideRecord('sys_dictionary');
+        refDictGR.addQuery('name', refTable);
+        refDictGR.addQuery('internal_type', 'reference');
+        refDictGR.addQuery('reference', refTable);
+        refDictGR.query();
+        while (refDictGR.next()) {
+            childRefField = refDictGR.getValue('element');
+            break; // Use first match only
+        }
+
+        // If a self-reference field exists, look for children
+        if (childRefField) {
+            var childGR = new GlideRecord(refTable);
+            childGR.addQuery(childRefField, refSysId);
+            childGR.setLimit(10);
+            childGR.query();
+
+            var children = [];
+            while (childGR.next()) {
+                children.push(childGR.getDisplayValue());
+            }
+
+            if (children.length &gt; 0) {
+                result.success = false;
+                result.message = "Multiple child records found under '" + value + "'";
+                result.choices = children;
+            }
+        }
+
+        return result;
+    },
+
+    /**
+    Returns all fields and their types from sys_dictionary for a given table.
+    @param {string} tableName - The table name to inspect.
+    @returns {object} { fields: [{name, type, reference, mandatory, column_label}] }
+    */
+    getTableSchema: function(tableName) {
+        var fields = [];
+        var dictGR = new GlideRecord('sys_dictionary');
+        dictGR.addQuery('name', tableName);
+        dictGR.query();
+        while (dictGR.next()) {
+            fields.push({
+                name: dictGR.getValue('element'),
+                column_label: dictGR.getValue('column_label'),
+                type: dictGR.getValue('internal_type'),
+                reference: dictGR.getValue('reference'),
+                mandatory: dictGR.getValue('mandatory') === 'true'
+            });
+        }
+        return {
+            fields: fields
+        };
+    },
+
+    /**
+    Returns up to 20 display values from a reference field for a given table.
+    @param {string} tableName - The name of the parent table (e.g. 'sys_user').
+    @param {string} fieldName - The reference field name (e.g. 'department', 'u_test_field').
+    @returns {object} { reference_table, display_field, options[] or error }
+    */
+    getReferenceOptions: function(tableName, fieldName) {
+        var result = {
+            reference_table: '',
+            display_field: '',
+            options: []
+        };
+
+        // Lookup dictionary to get the reference table
+        var dictGR = new GlideRecord('sys_dictionary');
+        dictGR.addQuery('name', tableName);
+        dictGR.addQuery('element', fieldName);
+        dictGR.query();
+        if (!dictGR.next()) {
+            result.error = "Field '" + fieldName + "' not found on table '" + tableName + "'";
+            return result;
+        }
+
+        var refTable = dictGR.getValue('reference');
+        if (!refTable) {
+            result.error = "Field '" + fieldName + "' is not a reference field.";
+            return result;
+        }
+        result.reference_table = refTable;
+
+        // Get display column from sys_db_object
+        var displayField = 'name';
+        var dbObj = new GlideRecord('sys_db_object');
+        if (dbObj.get('name', refTable)) {
+            displayField = dbObj.getValue('display_column') || 'name';
+        }
+        result.display_field = displayField;
+
+        // Fetch reference display values
+        var refGR = new GlideRecord(refTable);
+        refGR.orderBy(displayField);
+        refGR.setLimit(20);
+        refGR.query();
+        while (refGR.next()) {
+            result.options.push(refGR.getDisplayValue(displayField));
+        }
+
+        return result;
+    },
+
+    /**
+Queries any table using filters and returns specific fields.
+@param {string} table - The target table name (e.g., 'incident', 'u_custom_table')
+@param {object} filters - Key-value filters (e.g., { 'email': 'bruce@wayne.com' })
+@param {array} fields - Array of fields to return (e.g., ['name', 'email'])
+@param {boolean} useDisplay - If true, returns display values instead of raw values
+@returns {object} - { records: [ { field: value, ... } ], message, count }
+*/
+    anything_record: function(table, filters, fields, useDisplay) {
+        var result = {
+            records: [],
+            count: 0,
+            message: ''
+        };
+
+        if (!table || !filters || typeof filters !== 'object') {
+            result.message = "Invalid table or filter parameters";
+            return result;
+        }
+
+        var gr = new GlideRecord(table);
+        var encoded = false;
+
+        // Add filters
+        for (var key in filters) {
+            if (!filters.hasOwnProperty(key)) continue;
+            if (key === 'encoded_query') {
+                gr.addEncodedQuery(filters[key]);
+                encoded = true;
+            } else {
+                gr.addQuery(key, filters[key]);
+            }
+        }
+
+        gr.query();
+        while (gr.next()) {
+            var record = {};
+            var fieldList = Array.isArray(fields) &amp;&amp; fields.length &gt; 0 ? fields : gr.getFields();
+
+            for (var i = 0; i &lt; fieldList.length; i++) {
+                var field = fieldList[i];
+                if (!gr.isValidField(field)) continue;
+
+                record[field] = useDisplay ? gr.getDisplayValue(field) : gr.getValue(field);
+            }
+
+            result.records.push(record);
+        }
+
+        result.count = result.records.length;
+        result.message = encoded ? "Used encoded query" : "Direct query used";
+        return result;
+    },
+
+
+    type: 'gptFunctions'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-01 15:20:51&lt;/sys_created_on&gt;&lt;sys_id&gt;792d0df647b16210e52631b4116d433e&lt;/sys_id&gt;&lt;sys_mod_count&gt;33&lt;/sys_mod_count&gt;&lt;sys_name&gt;gptFunctions&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_792d0df647b16210e52631b4116d433e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-04 02:33:44&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1905579644</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>747bda2f47b16610ed3c9e20116d4300</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393940f40000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>gptFunctions</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>e5661ea787b166109fc2aeed91bb6dc8</update_guid>
+<update_guid_history>e5661ea787b166109fc2aeed91bb6dc8:-1905579644,b67ab5ef8afd261047ab48fb5bd95839:-1905579644,7b1671a733fd2610ba0c9dcd0a80a2da:-1357294359,33f0f56340fd26100b79242690006c26:-1529676576,6dcbedaf97bd26105ef3e97867f21270:-1611830507,85e859e7b57d26107ceb2e4fadb6e297:-1771533286,a4d7d9678a7d2610fe0fe1f0322c58de:-1222628100,7b55a8a3947926105b5b5c69d9babc78:1833297611,992c546baf392610b49e1145fc37c1b2:1910809515,90aa58e7ee39261005a665bd8abe0bc9:-1170475884,59895067343926101210423b823500a3:852779637,2a8854a735392610fc901f04acbf74d1:-84774316,38489c2773392610a73ceab878c828f9:1997159814,525758e3e8392610abe7edc7aa217422:1046147092,2ed554ef76f5261034c69634bc4a8d17:-1167558592,e25a37137eb52610196a9804bb24b2db:-237307640,676d0c83d6fd621077cb095f72cd2835:1937993392,899b448338fd6210cf31fc5c813094ff:-1594366848,577a8ccb00bd6210b5dd3c245b59fefd:-45235922,a8284c4f66bd6210d21d78d9897f724f:-81582122,522bfbfade7d6210f0be88d1f23ec88d:65762622,627afb76897d6210c8e00594b30163af:731191574,b2d23b72687d6210a3134321dd97b812:65762622,91cd2b3aed3d6210628c41c64e96be30:1532655176,725edb72d7f96210e4ef45e9cd6eafeb:2077219898,d55b9bbe7db962108e3b75628d708a56:379422933,04295bbaafb9621088b75b625a2b0aff:-762364261,3564d7b2d3b962104bbcf5e073b06c4d:-292546592</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_parameters_json</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_parameters_json" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Parameters JSON&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_parameters_json&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;10000&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:14:52&lt;/sys_created_on&gt;&lt;sys_id&gt;fe559a0f4779a210ed3c9e20116d430b&lt;/sys_id&gt;&lt;sys_name&gt;Parameters JSON&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_parameters_json&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:14:52&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-79760581</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>787b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eada80000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Parameters JSON</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>50c75a6b8fb1661067d1f9718c826207</update_guid>
+<update_guid_history>50c75a6b8fb1661067d1f9718c826207:-79760581,7885960f5a79a2100723b93205ce65ca:-79760581</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_number_14b456cb4779a210ed3c9e20116d4361</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number"><sys_number action="INSERT_OR_UPDATE"><category display_value="" name="u_neuronow_openai_skills">u_neuronow_openai_skills</category><maximum_digits>7</maximum_digits><number>1000</number><prefix>NSKILL</prefix><sys_class_name>sys_number</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:17</sys_created_on><sys_id>14b456cb4779a210ed3c9e20116d4361</sys_id><sys_mod_count>0</sys_mod_count><sys_name>NSKILL</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_number_14b456cb4779a210ed3c9e20116d4361</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:17</sys_updated_on></sys_number></record_update>]]></payload>
+<payload_hash>-794590468</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>787b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaa640000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>NSKILL</target_name>
+<type>Number</type>
+<update_domain>global</update_domain>
+<update_guid>44c71a6b3fb16610d0a3245eb68410d5</update_guid>
+<update_guid_history>44c71a6b3fb16610d0a3245eb68410d5:-794590468,9cb456cb7179a210e7c3da4e570ab38e:-794590468</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>u_neuronow_openai_skills_c3450dd347f5e210ed3c9e20116d4355</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="u_neuronow_openai_skills"&gt;&lt;u_neuronow_openai_skills action="INSERT_OR_UPDATE"&gt;&lt;sys_class_name&gt;u_neuronow_openai_skills&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 04:06:05&lt;/sys_created_on&gt;&lt;sys_id&gt;c3450dd347f5e210ed3c9e20116d4355&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-04 03:09:23&lt;/sys_updated_on&gt;&lt;u_active&gt;true&lt;/u_active&gt;&lt;u_category/&gt;&lt;u_description&gt;/**&amp;#13;
+Queries any table using filters and returns specific fields.&amp;#13;
+Connects directly to gptFunctions.anything_record().&amp;#13;
+@param {string} table - Table to query (e.g., 'cmn_department')&amp;#13;
+@param {object} filters - Key-value filters (e.g., { 'name': 'Finance' })&amp;#13;
+@param {array} fields - Fields to return (e.g., ['name', 'sys_id'])&amp;#13;
+@param {boolean} use_display - Return display values (true/false)&amp;#13;
+@returns {string} JSON result with matching records&amp;#13;
+*/&lt;/u_description&gt;&lt;u_last_tested/&gt;&lt;u_module/&gt;&lt;u_name&gt;any_record&lt;/u_name&gt;&lt;u_number&gt;NSKILL0001015&lt;/u_number&gt;&lt;u_parameters_json/&gt;&lt;u_script&gt;&lt;![CDATA[(function () {
+    var result = {};
+    var gptFns = new global.gptFunctions();
+
+    var table = input.table;
+    var filters = input.filters || {};
+    var fields = input.fields || [];
+    var useDisplay = input.use_display !== false; // default true
+
+    var queryResult = gptFns.anything_record(table, filters, fields, useDisplay);
+
+    result.records = queryResult.records || [];
+    result.count = queryResult.count || 0;
+    result.message = queryResult.message || "";
+
+    return JSON.stringify(result);
+})();
+]]&gt;&lt;/u_script&gt;&lt;u_short_description&gt;Function (Universal Table/Field Query)&lt;/u_short_description&gt;&lt;u_version/&gt;&lt;/u_neuronow_openai_skills&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;c3450dd347f5e210ed3c9e20116d4355&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 04:06:05&lt;/sys_created_on&gt;&lt;sys_id&gt;fd06459f47b5e210ed3c9e20116d43a1&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 04:06:05&lt;/sys_updated_on&gt;&lt;table&gt;u_neuronow_openai_skills&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1990038635</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>7c7b1eaf47b16610ed3c9e20116d43d3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393887330000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>any_record</target_name>
+<type>OpenAI Skills</type>
+<update_domain>global</update_domain>
+<update_guid>353656e79ab16610a7313af23f0b8667</update_guid>
+<update_guid_history>353656e79ab16610a7313af23f0b8667:1990038635</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_last_tested</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_last_tested" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Last Tested&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_last_tested&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value=""&gt;glide_date&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:16:20&lt;/sys_created_on&gt;&lt;sys_id&gt;c6c5964f4779a210ed3c9e20116d4345&lt;/sys_id&gt;&lt;sys_name&gt;Last Tested&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_last_tested&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:16:20&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>921460726</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>7c7b9a2f47b16610ed3c9e20116d43fb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eacfa0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Last Tested</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>90c71a6b2bb166106150e318763934fb</update_guid>
+<update_guid_history>90c71a6b2bb166106150e318763934fb:921460726,92d5d64f9f79a21079491df6a19dbcd1:921460726</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_script_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_script" label="Script" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_script</element><help/><hint/><label>Script</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Scripts</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:13:23</sys_created_on><sys_id>b6259ecb4779a210ed3c9e20116d4349</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Script</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_script_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:13:23</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-1537435337</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>7c7b9a2f47b16610ed3c9e20116d43fe</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf890000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Script</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6bdeb16610be0e18e986886422</update_guid>
+<update_guid_history>90c75a6bdeb16610be0e18e986886422:-1537435337,ba25920fad79a21032a1b31a6d944c1b:-1537435337</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_84b456cb4779a210ed3c9e20116d430e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>84b456cb4779a210ed3c9e20116d430e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_neuronow_openai_skills">40b456cb4779a210ed3c9e20116d430b</sys_security_acl><sys_update_name>sys_security_acl_role_84b456cb4779a210ed3c9e20116d430e</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><sys_user_role display_value="u_neuronow_openai_skills_user" name="u_neuronow_openai_skills_user">33a45e8b4779a210ed3c9e20116d4367</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+<payload_hash>737221922</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b07b1eaf47b16610ed3c9e20116d43d2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb0e70000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid>2cc75a6bf7b1661057f74170e85b173e</update_guid>
+<update_guid_history>2cc75a6bf7b1661057f74170e85b173e:737221922,88b456cbf479a210a8e0c195c1c06d10:737221922</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_version</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_version" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Version&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_version&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;true&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:15:58&lt;/sys_created_on&gt;&lt;sys_id&gt;f4b5d24f4779a210ed3c9e20116d4369&lt;/sys_id&gt;&lt;sys_name&gt;Version&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_version&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 00:54:21&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>900326563</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b07b9a2f47b16610ed3c9e20116d43fd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393ead6d0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Version</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6bcfb1661084a43b4475653503</update_guid>
+<update_guid_history>90c75a6bcfb1661084a43b4475653503:900326563,952adc130535e2109566973a73301889:900326563,c1c5164f0f79a210c832342dc216dbcd:2028606480</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_75f7960347b9a210ed3c9e20116d4307</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.gptSkillRunner&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;gptSkillRunner&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var gptSkillRunner = Class.create();
+gptSkillRunner.prototype = {
+    initialize: function() {},
+
+    /**
+     * Executes a skill stored in the x_neuronow_openai_skill table by name.
+     * @param {string} skillName - The unique name of the skill to run.
+     * @param {Object} skillArgs - Arguments to pass into the skill script.
+     * @returns {string} JSON-formatted result from the executed skill.
+     */
+    run: function(skillName, skillArgs) {
+        var skillGR = new GlideRecord('u_neuronow_openai_skills');
+        var skillGR_q = 'u_name=' + skillName + '^u_active=true';
+        skillGR.addQuery(skillGR_q);
+        skillGR.query();
+
+        if (!skillGR.next()) {
+            return JSON.stringify({
+                error: 'Skill "' + skillName + '" not found or inactive.'
+            });
+        }
+
+        var code = skillGR.getValue('u_script');
+
+        try {
+            var argsVar = 'var input = ' + JSON.stringify(skillArgs) + ';';
+            var fullScript = argsVar + '\n' + code;
+            var result = eval(fullScript);
+            return result;
+        } catch (ex) {
+            return JSON.stringify({
+                error: 'Skill execution failed: ' + ex.message
+            });
+        }
+    },
+
+    type: 'gptSkillRunner'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:28:53&lt;/sys_created_on&gt;&lt;sys_id&gt;75f7960347b9a210ed3c9e20116d4307&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;gptSkillRunner&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_75f7960347b9a210ed3c9e20116d4307&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:28:53&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;75f7960347b9a210ed3c9e20116d4307&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:28:53&lt;/sys_created_on&gt;&lt;sys_id&gt;31b8560347b9a210ed3c9e20116d4354&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:28:53&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1430551575</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b07bda2f47b16610ed3c9e20116d4300</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393941150000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>gptSkillRunner</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>a5661ea737b16610f4b1fadb06cec8ca</update_guid>
+<update_guid_history>a5661ea737b16610f4b1fadb06cec8ca:-1430551575,02b8164344b9a2108665ad937b4bdaaf:-1430551575</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_number</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_number" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes&gt;ignore_filter_on_new=true&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Number&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value&gt;javascript:global.getNextObjNumberPadded();&lt;/default_value&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_number&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:11:17&lt;/sys_created_on&gt;&lt;sys_id&gt;54b456cb4779a210ed3c9e20116d4368&lt;/sys_id&gt;&lt;sys_name&gt;Number&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_number&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:11:17&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1235382392</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b47b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eab110000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Number</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>04c71a6bcab166106e5fc09574f601df</update_guid>
+<update_guid_history>04c71a6bcab166106e5fc09574f601df:-1235382392,14b456cb9c79a210b98b5aac58dd0472:-1235382392</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills__en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="" label="OpenAI Skills" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element/><help/><hint/><label>OpenAI Skills</label><language>en</language><name>u_neuronow_openai_skills</name><plural>OpenAI Skills</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>4cb456cb4779a210ed3c9e20116d4322</sys_id><sys_mod_count>1</sys_mod_count><sys_name>OpenAI Skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills__en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:45:15</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>2131356738</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b47b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eac2c0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>94c71a6bc1b166105122235e9fa487ed</update_guid>
+<update_guid_history>94c71a6bc1b166105122235e9fa487ed:2131356738,44181c5f4bf1e21096e3194d87e7fca6:2131356738,88b456cbb479a210dd2ac86d5a82a250:341502594</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>u_neuronow_openai_skills_c29a135747f12610ed3c9e20116d4395</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="u_neuronow_openai_skills"&gt;&lt;u_neuronow_openai_skills action="INSERT_OR_UPDATE"&gt;&lt;sys_class_name&gt;u_neuronow_openai_skills&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 14:55:56&lt;/sys_created_on&gt;&lt;sys_id&gt;c29a135747f12610ed3c9e20116d4395&lt;/sys_id&gt;&lt;sys_mod_count&gt;24&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-04 02:55:52&lt;/sys_updated_on&gt;&lt;u_active&gt;true&lt;/u_active&gt;&lt;u_category/&gt;&lt;u_description&gt;/**&amp;#13;
+Updates a user record in sys_user. Accepts flat input with sys_id and direct field updates.&amp;#13;
+Resolves reference fields using display values when applicable.&amp;#13;
+@param {string} sys_id - Unique identifier for the user record.&amp;#13;
+@param {...any} - Any field from sys_user, including references and custom fields.&amp;#13;
+@returns {string} JSON result with update status or errors.&amp;#13;
+*/&lt;/u_description&gt;&lt;u_last_tested/&gt;&lt;u_module/&gt;&lt;u_name&gt;update_user&lt;/u_name&gt;&lt;u_number&gt;NSKILL0001020&lt;/u_number&gt;&lt;u_parameters_json/&gt;&lt;u_script&gt;&lt;![CDATA[(function() {
+    var result = {};
+    var gptFns = new global.gptFunctions();
+    var table = 'sys_user';
+    var fields = input;
+
+    if (!input.sys_id) {
+        result.error = "Must provide a sys_id to perform update.";
+        return JSON.stringify(result);
+    }
+
+    var gr = new GlideRecord(table);
+    if (!gr.get(input.sys_id)) {
+        result.error = "User record not found with provided sys_id.";
+        return JSON.stringify(result);
+    }
+
+    var schema = gptFns.getTableSchema(table);
+    var schemaFields = schema.fields || [];
+
+    function resolveFieldName(fieldOrLabel, schemaFields) {
+        if (!Array.isArray(schemaFields)) return fieldOrLabel;
+
+        var match = schemaFields.find(function(f) {
+            return f.name === fieldOrLabel || f.column_label === fieldOrLabel;
+        });
+
+        if (!match) {
+            match = schemaFields.find(function(f) {
+                return f.name === 'u_' + fieldOrLabel;
+            });
+        }
+
+        return match ? match.name : fieldOrLabel;
+    }
+
+    for (var field in fields) {
+        if (!fields.hasOwnProperty(field) || field === 'sys_id') continue;
+
+        var value = fields[field];
+        var actualFieldName = resolveFieldName(field, schemaFields);
+        var meta = schemaFields.find(function(f) {
+            return f.name === actualFieldName;
+        });
+
+        if (!meta) continue;
+
+        if (meta.type === 'reference') {
+            var refResult = gptFns.resolveReferenceValue(table, actualFieldName, value, schemaFields);
+
+            // if (!refResult.success) {
+            //     // Priority 1: use any child suggestions returned by resolveReferenceValue
+            //     if (refResult.choices &amp;&amp; Array.isArray(refResult.choices) &amp;&amp; refResult.choices.length &gt; 0) {
+            //         result.error = refResult.message;
+            //         result.suggestion = "Multiple child records found under '" + value + "'. Please choose one:";
+            //         result.options = refResult.choices;
+            //         return JSON.stringify(result);
+            //     }
+
+            //     // Priority 2: fallback to global reference options
+            //     var refOptions = gptFns.getReferenceOptions(table, actualFieldName);
+
+            //     // Optional: filter options based on input value
+            //     if (refOptions &amp;&amp; Array.isArray(refOptions.options) &amp;&amp; value) {
+            //         var lowerVal = value.toLowerCase();
+            //         refOptions.options = refOptions.options.filter(function(opt) {
+            //             return opt.toLowerCase().indexOf(lowerVal) !== -1;
+            //         });
+            //     }
+
+            //     result.error = refResult.message;
+            //     if (refOptions &amp;&amp; refOptions.options &amp;&amp; refOptions.options.length &gt; 0) {
+            //         result.suggestion = "That value was not found. Here are some available options for '" + actualFieldName + "':";
+            //         result.options = refOptions.options;
+            //     }
+
+            //     return JSON.stringify(result);
+            // }
+
+            if (!refResult.success) {
+                // Priority 1: use any child suggestions returned by resolveReferenceValue
+                if (refResult.choices &amp;&amp; Array.isArray(refResult.choices) &amp;&amp; refResult.choices.length &gt; 0) {
+                    result.error = refResult.message;
+                    result.suggestion = "Multiple child records found under '" + value + "'. Please choose one:";
+                    result.options = refResult.choices;
+                    return JSON.stringify(result);
+                }
+
+                // Priority 2: fallback to global reference options
+                var refOptions = gptFns.getReferenceOptions(table, actualFieldName);
+
+                // Priority 3: deep search using anything_record (NEW)
+                var dictGR = new GlideRecord('sys_dictionary');
+                dictGR.addQuery('name', table);
+                dictGR.addQuery('element', actualFieldName);
+                dictGR.query();
+                if (dictGR.next()) {
+                    var refTable = dictGR.getValue('reference');
+                    if (refTable) {
+                        var displayField = 'name';
+                        var dbObj = new GlideRecord('sys_db_object');
+                        if (dbObj.get('name', refTable)) {
+                            displayField = dbObj.getValue('display_column') || 'name';
+                        }
+
+                        var filters = {};
+                        filters[displayField] = value;
+
+                        var recordGuess = gptFns.anything_record(refTable, filters, ['sys_id', displayField], true);
+                        if (recordGuess.records.length === 1) {
+                            value = recordGuess.records[0].sys_id;
+                        } else if (recordGuess.records.length &gt; 1) {
+                            result.error = refResult.message;
+                            result.suggestion = "Multiple possible matches found:";
+                            result.options = recordGuess.records.map(function(rec) {
+                                return rec[displayField];
+                            });
+                            return JSON.stringify(result);
+                        }
+                    }
+                }
+
+
+                // Priority 4: fallback suggestions
+                if (refOptions &amp;&amp; Array.isArray(refOptions.options) &amp;&amp; value) {
+                    var lowerVal = value.toLowerCase();
+                    refOptions.options = refOptions.options.filter(function(opt) {
+                        return opt.toLowerCase().indexOf(lowerVal) !== -1;
+                    });
+                }
+
+                result.error = refResult.message;
+                if (refOptions &amp;&amp; refOptions.options &amp;&amp; refOptions.options.length &gt; 0) {
+                    result.suggestion = "That value was not found. Here are some available options for '" + actualFieldName + "':";
+                    result.options = refOptions.options;
+                }
+
+                return JSON.stringify(result);
+            }
+
+
+            value = refResult.sys_id;
+        }
+
+        try {
+            gr.setValue(actualFieldName, value);
+        } catch (e) {
+            result.warning = result.warning || [];
+            result.warning.push("Skipped field '" + field + "': " + e.message);
+        }
+    }
+
+    result.sys_id = gr.update();
+    result.status = "updated";
+    return JSON.stringify(result);
+})();]]&gt;&lt;/u_script&gt;&lt;u_short_description&gt;Updates an existing sys_user record using either sys_id or identifying filters.&lt;/u_short_description&gt;&lt;u_version/&gt;&lt;/u_neuronow_openai_skills&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;c29a135747f12610ed3c9e20116d4395&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 14:55:56&lt;/sys_created_on&gt;&lt;sys_id&gt;49ca5fd347f12610ed3c9e20116d4330&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 14:55:56&lt;/sys_updated_on&gt;&lt;table&gt;u_neuronow_openai_skills&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-47193810</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b87b1eaf47b16610ed3c9e20116d43d3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393887f80000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>update_user</target_name>
+<type>OpenAI Skills</type>
+<update_domain>global</update_domain>
+<update_guid>8a3656e7c1b16610b702a1c215e96170</update_guid>
+<update_guid_history>8a3656e7c1b16610b702a1c215e96170:-47193810</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_description</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_description" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Description&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_description&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;1000&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:14:02&lt;/sys_created_on&gt;&lt;sys_id&gt;bc45960f4779a210ed3c9e20116d4393&lt;/sys_id&gt;&lt;sys_name&gt;Description&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_description&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:14:02&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>305475571</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b87b9a2f47b16610ed3c9e20116d43fb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eacbf0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Description</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>90c71a6bc9b16610b68939a1c68a3bf7</update_guid>
+<update_guid_history>90c71a6bc9b16610b68939a1c68a3bf7:305475571,a855d60fce79a2102d8a60acde8868fd:305475571</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_parameters_json_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_parameters_json" label="Parameters JSON" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_parameters_json</element><help/><hint/><label>Parameters JSON</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Parameters JSONs</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:14:52</sys_created_on><sys_id>3485960f4779a210ed3c9e20116d43c4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Parameters JSON</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_parameters_json_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:14:52</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-529300465</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>b87b9a2f47b16610ed3c9e20116d43fe</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaee20000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Parameters JSON</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6b7fb166103b59b46fa68e6e17</update_guid>
+<update_guid_history>98c75a6b7fb166103b59b46fa68e6e17:-529300465,70851e0f1579a21094e1291c5d0e8ddf:-529300465</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_section_1bc8decf4779a210ed3c9e20116d436a</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="1bc8decf4779a210ed3c9e20116d436a" sys_domain="global" table="u_neuronow_openai_skills" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>0</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>301adc134735e210ed3c9e20116d4379</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_name</element><position>1</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b41adc134735e210ed3c9e20116d4379</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_module</element><position>2</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>3c1adc134735e210ed3c9e20116d4379</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_category</element><position>3</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b01adc134735e210ed3c9e20116d437a</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>4</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>381adc134735e210ed3c9e20116d437a</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_active</element><position>5</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>bc1adc134735e210ed3c9e20116d437a</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>6</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>341adc134735e210ed3c9e20116d437b</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_short_description</element><position>7</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b81adc134735e210ed3c9e20116d437b</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_description</element><position>8</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>301adc134735e210ed3c9e20116d437c</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_parameters_json</element><position>9</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b41adc134735e210ed3c9e20116d437c</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_script</element><position>10</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>3c1adc134735e210ed3c9e20116d437c</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>11</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b01adc134735e210ed3c9e20116d437d</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_version</element><position>12</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>381adc134735e210ed3c9e20116d437d</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>13</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>bc1adc134735e210ed3c9e20116d437d</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_last_tested</element><position>14</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>341adc134735e210ed3c9e20116d437e</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>15</position><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-03 00:54:03</sys_created_on><sys_id>b81adc134735e210ed3c9e20116d437e</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_neuronow_openai_skills" sys_domain="global" view="Default view">1bc8decf4779a210ed3c9e20116d436a</sys_ui_section><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:54:03</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>u_neuronow_openai_skills</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:29:15</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>1bc8decf4779a210ed3c9e20116d436a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_section_1bc8decf4779a210ed3c9e20116d436a</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:29:15</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+<payload_hash>1602383064</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>bc7b1eaf47b16610ed3c9e20116d43d2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eae110000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills</target_name>
+<type>Form Layout</type>
+<update_domain>global</update_domain>
+<update_guid>9cc75a6b7ab16610e0c177155eb32b0c</update_guid>
+<update_guid_history>9cc75a6b7ab16610e0c177155eb32b0c:1602383064,7c1adc135135e21063338d5de7a73180:1602383064,64f9d8134135e210b267663264b6acf9:-1780094832,b5599cdf2ef1e2103a941fcbb3f1f103:543259629,6b391cdf6df1e2107b837edf50351523:-1613413729,3c09d4df51f1e210dd7ace9a131d6444:-1682956389,e3d814df85f1e21063e4bfe28be28923:1618574046,13c8964367b9a21000afe784456f73b2:-366827731,dbc8decfec79a2105ec32503bfc9016d:735414238</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_db_object_2344168b4779a210ed3c9e20116d43ad</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object"><sys_db_object action="INSERT_OR_UPDATE"><access>public</access><actions_access>false</actions_access><alter_access>false</alter_access><caller_access/><client_scripts_access>false</client_scripts_access><configuration_access>false</configuration_access><create_access>true</create_access><create_access_controls>true</create_access_controls><delete_access>true</delete_access><filter_extension/><is_extendable>true</is_extendable><label>OpenAI Skills</label><live_feed_enabled>false</live_feed_enabled><name>u_neuronow_openai_skills</name><number_ref display_value="NSKILL">14b456cb4779a210ed3c9e20116d4361</number_ref><provider_class/><read_access>true</read_access><scriptable_table>false</scriptable_table><super_class/><sys_class_name>sys_db_object</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:15</sys_created_on><sys_id>2344168b4779a210ed3c9e20116d43ad</sys_id><sys_mod_count>3</sys_mod_count><sys_name>OpenAI Skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_db_object_2344168b4779a210ed3c9e20116d43ad</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-03 00:45:15</sys_updated_on><update_access>true</update_access><user_role display_value="u_neuronow_openai_skills_user" name="u_neuronow_openai_skills_user">33a45e8b4779a210ed3c9e20116d4367</user_role><ws_access>true</ws_access></sys_db_object></record_update>]]></payload>
+<payload_hash>-1720836908</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>bc7b9a2f47b16610ed3c9e20116d43fa</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393ea89d0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills</target_name>
+<type>Table</type>
+<update_domain>global</update_domain>
+<update_guid>c4c71a6b6eb16610694be80de5a3acd3</update_guid>
+<update_guid_history>c4c71a6b6eb16610694be80de5a3acd3:-1720836908,40181c5fc7f1e21037ad091434fd1aaa:-1720836908,bcc4928bd079a2104f8a68642565c130:-904167152,18b456cb2379a2109380168da055ec66:1705005493,84b456cb6c79a2102c45a81ca20bcb52:-510602995</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_last_tested_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_last_tested" label="Last Tested" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_last_tested</element><help/><hint/><label>Last Tested</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Last Tested</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:16:20</sys_created_on><sys_id>92d5d24f4779a210ed3c9e20116d4378</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Last Tested</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_last_tested_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:16:20</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-550019016</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>bc7b9a2f47b16610ed3c9e20116d43fd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf270000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Last Tested</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6bdcb1661075af616fafd8401c</update_guid>
+<update_guid_history>90c75a6bdcb1661075af616fafd8401c:-550019016,ded5d64f7779a2108886f48a14da5fd2:-550019016</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_3fa416cb4779a210ed3c9e20116d43f9</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><controlled_by_refs/><decision_type>allow</decision_type><description>Default access control on u_neuronow_openai_skills</description><local_or_existing>Local</local_or_existing><name>u_neuronow_openai_skills</name><operation display_value="create">create</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>3fa416cb4779a210ed3c9e20116d43f9</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_3fa416cb4779a210ed3c9e20116d43f9</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash>825365158</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>bc7bda2f47b16610ed3c9e20116d4300</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb0290000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>68c75a6b15b16610f74ed5727012a727</update_guid>
+<update_guid_history>68c75a6b15b16610f74ed5727012a727:825365158,7fa416cbf179a21038b9cb4f27b0c4fd:825365158</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_name</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_name" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Name&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;true&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:12:29&lt;/sys_created_on&gt;&lt;sys_id&gt;7fd49acb4779a210ed3c9e20116d436e&lt;/sys_id&gt;&lt;sys_name&gt;Name&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_name&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:23:47&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-534936361</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f07b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eab960000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Name</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>08c71a6b2cb1661011bdf8158d30bfe7</update_guid>
+<update_guid_history>08c71a6b2cb1661011bdf8158d30bfe7:-534936361,db87d64f9479a2103c55fc81d216d6a1:-534936361,75f41acbe879a210d920f3850f98f105:-1000427970</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_version_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_version" label="Version" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_version</element><help/><hint/><label>Version</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Versions</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:15:58</sys_created_on><sys_id>78c5560f4779a210ed3c9e20116d43f5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Version</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_version_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:15:58</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-875770331</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f07b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf0e0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Version</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6b26b166105ecf3a5645bc081a</update_guid>
+<update_guid_history>98c75a6b26b166105ecf3a5645bc081a:-875770331,01c5164f4c79a210b0cf5d91d605ebcf:-875770331</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>u_neuronow_openai_skills_bab6702b47b92610ed3c9e20116d43ef</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="u_neuronow_openai_skills"&gt;&lt;u_neuronow_openai_skills action="INSERT_OR_UPDATE"&gt;&lt;sys_class_name&gt;u_neuronow_openai_skills&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 21:39:29&lt;/sys_created_on&gt;&lt;sys_id&gt;bab6702b47b92610ed3c9e20116d43ef&lt;/sys_id&gt;&lt;sys_mod_count&gt;17&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 23:06:08&lt;/sys_updated_on&gt;&lt;u_active&gt;true&lt;/u_active&gt;&lt;u_category/&gt;&lt;u_description&gt;/**&amp;#13;
+Dynamically creates a user record in sys_user using schema.&amp;#13;
+Generates user_name from first/last name after record creation. Requires first_name, last_name, and email.&amp;#13;
+@param {string} first_name - The user's first name.&amp;#13;
+@param {string} last_name - The user's last name.&amp;#13;
+@param {string} email - The user's email address.&amp;#13;
+@returns {string} JSON result with created sys_id or error messages.&amp;#13;
+*/&lt;/u_description&gt;&lt;u_last_tested/&gt;&lt;u_module/&gt;&lt;u_name&gt;create_user&lt;/u_name&gt;&lt;u_number&gt;NSKILL0001021&lt;/u_number&gt;&lt;u_parameters_json/&gt;&lt;u_script&gt;&lt;![CDATA[// (function () {
+//     var result = {};
+
+//     var dupeCheck = new GlideRecord('sys_user');
+//     var dupeCheck_q = 'user_name=' + input.user_name + '^ORemail=' + input.email;
+//     dupeCheck.addQuery(dupeCheck_q);
+//     dupeCheck.query();
+
+//     if (dupeCheck.hasNext()) {
+//         result.error = "User with this username or email already exists.";
+//     } else {
+//         var gr = new GlideRecord('sys_user');
+//         gr.initialize();
+//         gr.first_name = input.first_name;
+//         gr.last_name = input.last_name;
+//         gr.user_name = input.user_name;
+//         gr.email = input.email;
+
+//         var newSysId = gr.insert();
+
+//         if (newSysId) {
+//             result.message = "User created successfully.";
+//             result.sys_id = newSysId;
+//             result.user_name = input.user_name;
+//         } else {
+//             result.error = "User creation failed.";
+//         }
+//     }
+
+//     return JSON.stringify(result);
+// })();
+/**
+Dynamically creates a user record in sys_user using schema.
+Generates user_name from first/last name. Prevents duplicates by user_name or email.
+@param {string} first_name - The user's first name.
+@param {string} last_name - The user's last name.
+@param {string} email - The user's email address.
+@returns {string} JSON result with created sys_id or error messages.
+*/
+
+(function () {
+    var result = {};
+
+    // Generate user_name: first letter of first name + first 7 chars of last name
+    var fn = input.first_name.trim().toLowerCase();
+    var ln = input.last_name.trim().toLowerCase();
+    var user_name = (fn.charAt(0) + ln.substring(0, 7)).replace(/[^a-z0-9]/g, '');
+
+    // Duplicate check by user_name or email
+    var dupeCheck = new GlideRecord('sys_user');
+    var dupeCheck_q = 'user_name=' + user_name + '^ORemail=' + input.email;
+    dupeCheck.addQuery(dupeCheck_q);
+    dupeCheck.query();
+
+    if (dupeCheck.hasNext()) {
+        result.error = "User with this username or email already exists.";
+    } else {
+        var gr = new GlideRecord('sys_user');
+        gr.initialize();
+        gr.first_name = input.first_name;
+        gr.last_name = input.last_name;
+        gr.user_name = user_name;
+        gr.email = input.email;
+
+        var newSysId = gr.insert();
+
+        if (newSysId) {
+            result.message = "User created successfully.";
+            result.sys_id = newSysId;
+            result.user_name = user_name;
+        } else {
+            result.error = "User creation failed.";
+        }
+    }
+
+    return JSON.stringify(result);
+})();
+]]&gt;&lt;/u_script&gt;&lt;u_short_description&gt;Creates a new user record in the sys_user table, using full_name, email, and optional custom fields.&lt;/u_short_description&gt;&lt;u_version/&gt;&lt;/u_neuronow_openai_skills&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;bab6702b47b92610ed3c9e20116d43ef&lt;/id&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-03 21:39:29&lt;/sys_created_on&gt;&lt;sys_id&gt;5827f0e747b92610ed3c9e20116d43c6&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-03 21:39:29&lt;/sys_updated_on&gt;&lt;table&gt;u_neuronow_openai_skills&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>509556861</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f47b1eaf47b16610ed3c9e20116d43d3</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1973938876b0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>create_user</target_name>
+<type>OpenAI Skills</type>
+<update_domain>global</update_domain>
+<update_guid>7d3656e7d5b16610585c16b4e2540769</update_guid>
+<update_guid_history>7d3656e7d5b16610585c16b4e2540769:509556861</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_category</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_category" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice&gt;1&lt;/choice&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Category&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_category&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="Choice"&gt;choice&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:15:36&lt;/sys_created_on&gt;&lt;sys_id&gt;a385de0f4779a210ed3c9e20116d433c&lt;/sys_id&gt;&lt;sys_name&gt;Category&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_category&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:15:36&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>910154474</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f47b9a2f47b16610ed3c9e20116d43fb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eac800000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Category</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>90c71a6bcbb16610dffb59c5b74d56f3</update_guid>
+<update_guid_history>90c71a6bcbb16610dffb59c5b74d56f3:910154474,eba5524f6279a2105e3f0abd906292e8:910154474</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_number_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_number" label="Number" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_number</element><help/><hint/><label>Number</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Numbers</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:17</sys_created_on><sys_id>98b456cb4779a210ed3c9e20116d436b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Number</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_number_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:17</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>-930219333</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f47b9a2f47b16610ed3c9e20116d43fe</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaf420000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Number</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>98c75a6b3db16610c300836dee8ba11d</update_guid>
+<update_guid_history>98c75a6b3db16610c300836dee8ba11d:-930219333,dcb456cbf579a2106c0ba48ac337ad8c:-930219333</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_7ba456cb4779a210ed3c9e20116d4307</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>7ba456cb4779a210ed3c9e20116d4307</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_neuronow_openai_skills">37a456cb4779a210ed3c9e20116d4304</sys_security_acl><sys_update_name>sys_security_acl_role_7ba456cb4779a210ed3c9e20116d4307</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><sys_user_role display_value="u_neuronow_openai_skills_user" name="u_neuronow_openai_skills_user">33a45e8b4779a210ed3c9e20116d4367</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+<payload_hash>-1996907801</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f47bda2f47b16610ed3c9e20116d4301</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb0a90000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills.u_neuronow_openai_skills_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid>24c75a6bd9b16610a1cc4f289c3c543b</update_guid>
+<update_guid_history>24c75a6bd9b16610a1cc4f289c3c543b:-1996907801,4cb456cbda79a2106826b477e9e70109:-1996907801</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_list_u_neuronow_openai_skills_null</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_list parent="" relationship="" sys_domain="global" table="u_neuronow_openai_skills" version="2" view=""><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_number</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>0</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>8249528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_name</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>1</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>0649528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_active</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>2</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>8649528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_category</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>3</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>0a49528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_description</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>4</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>8a49528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_last_tested</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>5</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>0e49528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_parameters_json</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>6</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>8e49528347b9a210ed3c9e20116d43c2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_script</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>7</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>0249528347b9a210ed3c9e20116d43c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_short_description</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>8</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>8249528347b9a210ed3c9e20116d43c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>u_version</element><list_id display_value="u_neuronow_openai_skills" element="NULL" name="u_neuronow_openai_skills" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c649528347b9a210ed3c9e20116d43c1</list_id><max_value>false</max_value><min_value>false</min_value><position>9</position><sum>false</sum><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:31:20</sys_created_on><sys_id>0649528347b9a210ed3c9e20116d43c3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:31:20</sys_updated_on></sys_ui_list_element><sys_ui_list action="INSERT_OR_UPDATE"><average_value>false</average_value><element/><max_value>false</max_value><min_value>false</min_value><name>u_neuronow_openai_skills</name><parent/><position/><relationship/><sum>false</sum><sys_class_name>sys_ui_list</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-04 00:21:37</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ef3cd92b477d2610ed3c9e20116d43fd</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_package/><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name/><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-04 00:21:37</sys_updated_on><sys_user display_value="Jon DeLuna">6816f79cc0a8016401c5a33be04be441</sys_user><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_list></sys_ui_list></record_update>]]></payload>
+<payload_hash>1875048511</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f87b1eaf47b16610ed3c9e20116d43d2</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eae830000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills</target_name>
+<type>List Layout</type>
+<update_domain>global</update_domain>
+<update_guid>58c75a6b27b16610f0247a85915eca12</update_guid>
+<update_guid_history>58c75a6b27b16610f0247a85915eca12:1875048511,ca49528368b9a2103a0948c0d6c573c5:-945062782</update_guid_history>
+<update_set display_value=""/>
+<view>Default view</view>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_neuronow_openai_skills_u_description_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_description" label="Description" language="en" table="u_neuronow_openai_skills"><sys_documentation action="INSERT_OR_UPDATE"><element>u_description</element><help/><hint/><label>Description</label><language>en</language><name>u_neuronow_openai_skills</name><plural>Descriptions</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:14:03</sys_created_on><sys_id>6455d60f4779a210ed3c9e20116d43f7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Description</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_neuronow_openai_skills_u_description_en</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:14:03</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash>274893589</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f87b9a2f47b16610ed3c9e20116d43fd</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eaefa0000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Description</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid>90c75a6b0fb1661039f0de5126321019</update_guid>
+<update_guid_history>90c75a6b0fb1661039f0de5126321019:274893589,e455d60f6479a210a5897e7f8d1114ff:274893589</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_37a456cb4779a210ed3c9e20116d4304</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><controlled_by_refs/><decision_type>allow</decision_type><description>Default access control on u_neuronow_openai_skills</description><local_or_existing>Local</local_or_existing><name>u_neuronow_openai_skills</name><operation display_value="read">read</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:16</sys_created_on><sys_id>37a456cb4779a210ed3c9e20116d4304</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_neuronow_openai_skills</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_37a456cb4779a210ed3c9e20116d4304</sys_update_name><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:16</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash>-55985190</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>f87bda2f47b16610ed3c9e20116d4300</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eb0050000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>u_neuronow_openai_skills</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid>6cc75a6b09b16610daf95089fdef8725</update_guid>
+<update_guid_history>6cc75a6b09b16610daf95089fdef8725:-55985190,77a456cb4379a2107f9a83f88558c306:-55985190</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_neuronow_openai_skills_u_short_description</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_short_description" table="u_neuronow_openai_skills"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Short Description&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_short_description&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;100&lt;/max_length&gt;&lt;name&gt;u_neuronow_openai_skills&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jdeluna&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-02 15:24:16&lt;/sys_created_on&gt;&lt;sys_id&gt;f4971ecf4779a210ed3c9e20116d4351&lt;/sys_id&gt;&lt;sys_name&gt;Short Description&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_neuronow_openai_skills_u_short_description&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jdeluna&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-02 15:24:16&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-292239057</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>fc7b9a2f47b16610ed3c9e20116d43fc</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393ead310000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table>u_neuronow_openai_skills</table>
+<target_name>OpenAI Skills.Short Description</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>90c71a6b40b16610fdddfd5ee447c2ff</update_guid>
+<update_guid_history>90c71a6b40b16610fdddfd5ee447c2ff:-292239057,92a79ecf5d79a21064873ff646cd418c:-292239057</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_schema_attribute_m2m_d0b456cb4779a210ed3c9e20116d4371</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_schema_attribute_m2m"><sys_schema_attribute_m2m action="INSERT_OR_UPDATE"><attribute display_value="Ignore filter on new">455b70b3eb321100d4360c505206fee8</attribute><schema display_value="Number" element="u_number" name="u_neuronow_openai_skills">54b456cb4779a210ed3c9e20116d4368</schema><sys_created_by>jdeluna</sys_created_by><sys_created_on>2025-06-02 15:11:17</sys_created_on><sys_id>d0b456cb4779a210ed3c9e20116d4371</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>jdeluna</sys_updated_by><sys_updated_on>2025-06-02 15:11:17</sys_updated_on><value>true</value></sys_schema_attribute_m2m></record_update>]]></payload>
+<payload_hash>-347126269</payload_hash>
+<remote_update_set display_value="NeuroNow Global Scope Install">f87b9a2f47b16610ed3c9e20116d43fa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>jdeluna</sys_created_by>
+<sys_created_on>2025-06-04 04:57:47</sys_created_on>
+<sys_id>fc7b9a2f47b16610ed3c9e20116d43ff</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>197393eab540000001</sys_recorded_at>
+<sys_updated_by>jdeluna</sys_updated_by>
+<sys_updated_on>2025-06-04 04:57:47</sys_updated_on>
+<table/>
+<target_name>true</target_name>
+<type>Dictionary Attribute</type>
+<update_domain>global</update_domain>
+<update_guid>08c71a6b5ab1661033cf0405ceca98e3</update_guid>
+<update_guid_history>08c71a6b5ab1661033cf0405ceca98e3:-347126269</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
