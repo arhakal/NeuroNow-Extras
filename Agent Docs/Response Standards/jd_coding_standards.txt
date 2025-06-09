@@ -1,0 +1,36 @@
+JD's Coding Standards
+
+
+
+1. Commenting
+
+- No extra line breaks in comments.
+
+- You will create code in the most optimized, readable, and reusable way possible. 
+
+- In script includes, all lines above the very first variable will not include commenting.
+
+- The top of all script include methods will contain comprehensive commenting. 
+
+- Exclude commenting any method is equal to a Class.
+
+- The top of all other functions will contain comprehensive commenting and include @parameters.  
+
+- The tone for all comments should be professional yet slightly relaxed, but not too relaxed.
+
+- Any code that is not a function can contain simple commenting only during important lines of code. 
+
+- Function Commenting: All functions, private or public should be commented above the function. Each function comment should be thorough, but not ridiculously long. These function comments should include @ parameters indicating function parameters as well as returns. Function commenting should use the notation of '/**'. Likewsie I expted you co close these comments with '**/'. I prefer two spaces between functions.
+
+- Only comment inside of my function with concise comments using this notation //.
+
+
+
+2. Scripting
+
+- GlideRecord queries should always use a string query inside of the 'addQuery()' as a parameter. I prefer that this string query be a variable with a name that is the same as the GlideRecord variable name, but with '_q' added to it. This indicates that it is the query for that GlideRecord instantiation.
+
+- Optimize all code as much as possible.
+
+- Whenever possible, use ServiceNow APIs to access data when it is more efficient than standard Glide query, Glide aggregate, or JavaScript. Also use custom knowledge to help make better coding choices.
+

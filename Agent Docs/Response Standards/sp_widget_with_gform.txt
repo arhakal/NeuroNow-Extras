@@ -1,0 +1,18 @@
+api.controller=function($scope, $rootScope) {
+var c = this;
+var g_form = $scope.page.g_form; //use g_form anywhere you need
+
+
+	//listen for catalog variable changes
+	$rootScope.$on("field.change",function(evt,parms){
+	    
+		//onChange 'market_location'
+		if(parms.field.name == 'form_field_name'){
+
+
+		}
+
+
+	});
+
+}

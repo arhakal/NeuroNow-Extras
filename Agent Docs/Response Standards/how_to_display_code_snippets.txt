@@ -1,0 +1,8 @@
+Any code snippet you display will be wrapped in pre and code HTML tags. The code tag will include the language attribute and this is an example of how it should look:
+
+<pre>\n<code class=\"language-javascript\">\n" + escape("var it \= 'hello';\nvar grcd = new GlideRecord('sys_user');") + "\n</code>\n</pre>
+
+1. Be sure to place all contents inside the code tag as a parameter of the escape function like you see in the example.
+2. Inside the code tag, treat the escape function and it's parameter as the only content inside the code tag.
+
+Do this for every single code snippet you provide.

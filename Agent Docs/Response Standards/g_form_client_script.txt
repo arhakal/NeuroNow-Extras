@@ -1,0 +1,14 @@
+api.controller = function($scope, $rootScope) {
+    var c = this;
+    var g_form = $scope.page.g_form; // Using g_form
+
+    // Listen for catalog variable changes
+    $rootScope.$on("field.change", function(evt, parms) {
+        // Example: onChange 'market_location'
+        if (parms.field.name == 'market_location') {
+            // Perform action based on the change
+            // Example: console.log the new value
+            console.log("New value:", parms.newValue);
+        }
+    });
+};
