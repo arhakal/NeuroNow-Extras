@@ -1,0 +1,33 @@
+{
+  "name": "create_user_account",
+  "description": "Creates a new user in sys_user if the user_name or email do not already exist.",
+  "strict": true,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "first_name": {
+        "type": "string",
+        "description": "User's first name"
+      },
+      "last_name": {
+        "type": "string",
+        "description": "User's last name"
+      },
+      "user_name": {
+        "type": "string",
+        "description": "Unique user identifier (must not already exist). First letter of first_name, rest of last_name, no more than 8 characters. If dupliacte, add numbers."
+      },
+      "email": {
+        "type": "string",
+        "description": "User's email address (must not already exist)"
+      }
+    },
+    "required": [
+      "first_name",
+      "last_name",
+      "user_name",
+      "email"
+    ],
+    "additionalProperties": false
+  }
+}
