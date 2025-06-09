@@ -1,0 +1,27 @@
+{
+  "name": "resolve_reference_display_value",
+  "description": "Resolves a display value for a reference field into a sys_id by looking up the appropriate table",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "table": {
+        "type": "string",
+        "description": "The parent table with the reference field"
+      },
+      "field": {
+        "type": "string",
+        "description": "The reference field name"
+      },
+      "displayValue": {
+        "type": "string",
+        "description": "The display value to resolve"
+      }
+    },
+    "required": [
+      "table",
+      "field",
+      "displayValue"
+    ]
+  }
+}

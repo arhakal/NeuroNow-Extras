@@ -1,0 +1,23 @@
+{
+  "name": "delete_record_by_sys_id",
+  "description": "Deletes a record from a ServiceNow table using the sys_id. This is the only supported method to ensure safe deletion.",
+  "strict": true,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "table": {
+        "type": "string",
+        "description": "The name of the table (e.g., 'sys_user')"
+      },
+      "sys_id": {
+        "type": "string",
+        "description": "The sys_id of the record to delete"
+      }
+    },
+    "required": [
+      "table",
+      "sys_id"
+    ],
+    "additionalProperties": false
+  }
+}
