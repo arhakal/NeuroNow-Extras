@@ -1,6 +1,4 @@
-JD's Coding Standards
-
-
+Coding Standards
 
 1. Commenting
 
@@ -11,8 +9,6 @@ JD's Coding Standards
 - In script includes, all lines above the very first variable will not include commenting.
 
 - The top of all script include methods will contain comprehensive commenting. 
-
-- Exclude commenting any method is equal to a Class.
 
 - The top of all other functions will contain comprehensive commenting and include @parameters.  
 
