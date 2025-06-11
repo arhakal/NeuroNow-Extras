@@ -24,7 +24,7 @@ This package provides:
 
 ### agent-instructions.md
 
-Instruction set for configuring LLM behavior and enforcing secure practices within the ServiceNow context. Includes:
+Instruction set for configuring LLM behavior and enforcing specific practices within the ServiceNow context. Includes:
 
 - Catalog item creation rules  
 - Record creation/update enforcement policies  
