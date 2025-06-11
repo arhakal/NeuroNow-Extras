@@ -1,6 +1,6 @@
 # NeuroNow Extras
 
-This repository is a companion resource to the core [NeuroNow project](https://github.com/your-org/neuronow). It provides supplemental files, standards, prompts, and tools to support the development and maintenance of the NeuroNow AI integration for ServiceNow.
+This repository is a companion resource to the core [NeuroNow project](https://github.com/MarsLandingMedia/NeuroNow). It provides supplemental files, standards, prompts, and tools to support the development and maintenance of the NeuroNow AI integration for ServiceNow.
 
 The NeuroNow Extras folder contains supporting developer documentation, UI code snippets, standards, and configuration instructions used to extend and maintain the NeuroNow AI platform in ServiceNow.
 
