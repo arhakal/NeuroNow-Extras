@@ -1,0 +1,29 @@
+{
+  "name": "get_user_data",
+  "description": "Get the user's data from the body of the input text",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of user"
+      },
+      "email": {
+        "type": "string",
+        "description": "Email of this user"
+      },
+      "user_name": {
+        "type": "string",
+        "description": "User name of the user"
+      },
+      "home_phone": {
+        "type": "string",
+        "description": "Phone number of the user"
+      }
+    },
+    "required": [
+      "name"
+    ]
+  }
+}
