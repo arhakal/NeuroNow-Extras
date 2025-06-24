@@ -121,7 +121,7 @@ This ensures that all conversational logic, access restrictions, and function us
 
 ## Licensing
 
-This content is provided under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) by Mars Landing Media LLC for demonstration and educational purposes only.
+This content is provided under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU Affero General Public License</a>. by Mars Landing Media LLC for demonstration and educational purposes only.
 
 No warranties, maintenance, or official support are provided. Mars Landing Media LLC assumes no responsibility for any damages, loss of data, or operational disruption resulting from incorrect, inappropriate, or enterprise use of this product or any part of it.
 
