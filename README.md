@@ -20,6 +20,12 @@ This package provides:
 
 ---
 
+## Installation (video includes NeuroNow and NeuroNow Extras)
+
+[![Watch the video](https://img.youtube.com/vi/BatQu_sBEFQ/0.jpg)](https://www.youtube.com/watch?v=BatQu_sBEFQ)
+
+---
+
 ## Included Files
 
 ### agent-instructions.md
